@@ -1,0 +1,303 @@
+/* Custom Font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles with CSS Variables for GitHub Colors */
+:root {
+  /* Light mode colors */
+  --color-canvas-default: #ffffff;
+  --color-canvas-subtle: #f6f8fa;
+  --color-canvas-inset: #f6f8fa;
+  --color-fg-default: #24292f;
+  --color-fg-muted: #656d76;
+  --color-fg-subtle: #6e7781;
+  --color-border-default: #d0d7de;
+  --color-border-muted: #d8dee4;
+  --color-accent-fg: #0969da;
+  --color-accent-emphasis: #0969da;
+  --color-success-fg: #1a7f37;
+  --color-danger-fg: #d1242f;
+  --color-warning-fg: #bf8700;
+  --color-neutral-muted: rgba(175, 184, 193, 0.2);
+  --color-accent-subtle: #dbeafe;
+  --color-success-subtle: #dcfce7;
+  --color-danger-subtle: #fee2e2;
+  --color-warning-subtle: #fef3c7;
+}
+
+.dark {
+  /* Dark mode colors */
+  --color-canvas-default: #0d1117;
+  --color-canvas-subtle: #161b22;
+  --color-canvas-inset: #010409;
+  --color-fg-default: #f0f6fc;
+  --color-fg-muted: #8b949e;
+  --color-fg-subtle: #6e7681;
+  --color-border-default: #30363d;
+  --color-border-muted: #21262d;
+  --color-accent-fg: #58a6ff;
+  --color-accent-emphasis: #1f6feb;
+  --color-success-fg: #3fb950;
+  --color-danger-fg: #f85149;
+  --color-warning-fg: #d29922;
+  --color-neutral-muted: rgba(110, 118, 129, 0.4);
+  --color-accent-subtle: #0c2d6b;
+  --color-success-subtle: #0f2419;
+  --color-danger-subtle: #2d1617;
+  --color-warning-subtle: #2d2107;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  background-color: var(--color-canvas-default);
+  color: var(--color-fg-default);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Modern GitHub-Style Components */
+@layer components {
+  .github-card {
+    background-color: var(--color-canvas-default);
+    border: 1px solid var(--color-border-default);
+    border-radius: 12px;
+    box-shadow:
+      0 1px 3px rgba(31, 35, 40, 0.12),
+      0 8px 24px rgba(66, 74, 83, 0.12);
+    transition: all 0.2s ease;
+  }
+
+  .github-card:hover {
+    box-shadow:
+      0 8px 24px rgba(31, 35, 40, 0.12),
+      0 16px 48px rgba(66, 74, 83, 0.16);
+  }
+
+  .github-btn {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    border: 1px solid var(--color-border-default);
+    background-color: var(--color-canvas-default);
+    color: var(--color-fg-default);
+  }
+
+  .github-btn:hover {
+    background-color: var(--color-canvas-subtle);
+  }
+
+  .github-btn-primary {
+    @apply github-btn;
+    background-color: var(--color-accent-emphasis);
+    border-color: var(--color-accent-emphasis);
+    color: white;
+  }
+
+  .github-btn-primary:hover {
+    background-color: #0860ca;
+    border-color: #0860ca;
+  }
+
+  .github-btn-success {
+    @apply github-btn;
+    background-color: var(--color-success-fg);
+    border-color: var(--color-success-fg);
+    color: white;
+  }
+
+  .github-btn-success:hover {
+    background-color: #1a7f37;
+    border-color: #1a7f37;
+  }
+
+  .github-btn-danger {
+    @apply github-btn;
+    background-color: var(--color-danger-fg);
+    border-color: var(--color-danger-fg);
+    color: white;
+  }
+
+  .github-btn-danger:hover {
+    background-color: #a40e26;
+    border-color: #a40e26;
+  }
+
+  .github-input {
+    @apply block w-full px-3 py-2 text-sm rounded-md transition-all duration-200;
+    background-color: var(--color-canvas-default);
+    border: 1px solid var(--color-border-default);
+    color: var(--color-fg-default);
+  }
+
+  .github-input:focus {
+    outline: 2px solid var(--color-accent-emphasis);
+    outline-offset: -1px;
+    border-color: var(--color-accent-emphasis);
+  }
+
+  .github-surface {
+    background-color: var(--color-canvas-default);
+    border: 1px solid var(--color-border-default);
+    border-radius: 8px;
+  }
+
+  .github-text-muted {
+    color: var(--color-fg-muted);
+  }
+
+  .github-text-subtle {
+    color: var(--color-fg-subtle);
+  }
+
+  .listening-pulse {
+    @apply relative;
+  }
+
+  .listening-pulse::before {
+    content: "";
+    @apply absolute inset-0 rounded-full opacity-75;
+    background-color: var(--color-accent-emphasis);
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  .listening-pulse::after {
+    content: "";
+    @apply absolute inset-2 rounded-full opacity-50;
+    background-color: var(--color-accent-emphasis);
+    animation: pulse-ring 2s ease-out infinite;
+    animation-delay: 1s;
+  }
+
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--color-accent-emphasis) 0%,
+      var(--color-success-fg) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .copyright-text {
+    @apply text-xs opacity-75 transition-opacity duration-200 hover:opacity-100;
+    color: var(--color-fg-subtle);
+  }
+}
+
+/* Custom Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(9, 105, 218, 0.2),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Scrollbar Styling - GitHub Style */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-canvas-subtle);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: 6px;
+  border: 2px solid var(--color-canvas-subtle);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-fg-muted);
+}
+
+/* Selection Styling - GitHub Blue */
+::selection {
+  background: var(--color-accent-subtle);
+  color: var(--color-fg-default);
+}
+
+/* Focus Styles - GitHub Style */
+.github-focus {
+  @apply focus:outline-none;
+  box-shadow: 0 0 0 3px var(--color-accent-emphasis);
+  outline: 2px solid var(--color-accent-emphasis);
+  outline-offset: -1px;
+}
+
+/* Utility Classes */
+.text-shadow {
+  text-shadow: 0 1px 2px rgba(31, 35, 40, 0.1);
+}
+
+.border-gradient {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--color-canvas-default), var(--color-canvas-default))
+      padding-box,
+    linear-gradient(
+        135deg,
+        var(--color-accent-emphasis),
+        var(--color-success-fg)
+      )
+      border-box;
+}

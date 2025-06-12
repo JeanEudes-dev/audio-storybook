@@ -1,0 +1,76 @@
+#!/bin/bash
+
+# 🎧 Interactive Audio Storybook Demo Script
+# Demonstrates all features and capabilities
+
+echo "🎧 Interactive Audio Storybook - Feature Demo"
+echo "=============================================="
+echo ""
+
+echo "📋 Application Features:"
+echo "• Interactive storytelling with branching narratives"
+echo "• Text-to-speech synthesis with voice selection"
+echo "• Speech-to-text recognition for voice commands"
+echo "• Beautiful glassmorphism UI design"
+echo "• Responsive layout (mobile/tablet/desktop)"
+echo "• Keyboard shortcuts for accessibility"
+echo "• Progress tracking and achievements"
+echo "• Dark/light theme support"
+echo "• PWA capabilities (offline support)"
+echo ""
+
+echo "⌨️ Keyboard Shortcuts:"
+echo "• Space      - Toggle audio playback"
+echo "• V          - Toggle voice listening"
+echo "• 1-5        - Select choice by number"
+echo "• Ctrl+R     - Restart story"
+echo "• Esc        - Stop all audio"
+echo "• Ctrl+Shift+D - Debug panel (dev mode)"
+echo "• Ctrl+Shift+X - Debug logging (dev mode)"
+echo ""
+
+echo "🎤 Voice Commands:"
+echo "1. Click the microphone button or press 'V'"
+echo "2. Speak the keywords shown with each choice"
+echo "3. System automatically selects best match"
+echo ""
+
+echo "🎨 UI Features:"
+echo "• Liquid glass design with smooth animations"
+echo "• Responsive grid layout"
+echo "• Framer Motion powered transitions"
+echo "• Loading screens and error boundaries"
+echo "• Help panel with shortcuts"
+echo ""
+
+echo "🔧 Technical Stack:"
+echo "• React 19 + TypeScript"
+echo "• Vite for development"
+echo "• Tailwind CSS + Custom glassmorphism"
+echo "• Zustand for state management"
+echo "• Framer Motion for animations"
+echo "• Web Speech API for audio features"
+echo ""
+
+echo "🚀 Starting application..."
+echo "Visit: http://localhost:5173/audio-storybook/"
+echo ""
+
+echo "📱 Try these interactions:"
+echo "1. Read the story and click choices"
+echo "2. Press Space to hear narration"
+echo "3. Press V and speak a choice keyword"
+echo "4. Use number keys (1-5) to select choices"
+echo "5. Check the help panel (? button)"
+echo "6. Explore the audio controls sidebar"
+echo ""
+
+echo "🎯 Story Experience:"
+echo "• 'The Enchanted Digital Forest'"
+echo "• Multiple branching paths"
+echo "• Different endings based on choices"
+echo "• Rich atmospheric descriptions"
+echo "• Progress tracking with achievements"
+echo ""
+
+echo "✨ Enjoy your interactive audio journey!"
