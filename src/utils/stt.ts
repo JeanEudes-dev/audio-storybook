@@ -255,7 +255,7 @@ export class FuzzyMatcher {
         matrix[j][i] = Math.min(
           matrix[j][i - 1] + 1, // deletion
           matrix[j - 1][i] + 1, // insertion
-          matrix[j - 1][i - 1] + indicator // substitution
+          matrix[j - 1][i - 1] + indicator, // substitution
         );
       }
     }
@@ -270,7 +270,7 @@ export class FuzzyMatcher {
   public static findBestMatch(
     spokenText: string,
     choices: Array<{ text: string; keywords: string[] }>,
-    threshold = 0.3
+    threshold = 0.3,
   ): { index: number; confidence: number } | null {
     const spoken = spokenText.toLowerCase().trim();
     let bestMatch = { index: -1, confidence: 0 };
@@ -278,7 +278,7 @@ export class FuzzyMatcher {
     choices.forEach((choice, index) => {
       // Check exact keyword matches first
       const keywordMatch = choice.keywords.some((keyword) =>
-        spoken.includes(keyword.toLowerCase())
+        spoken.includes(keyword.toLowerCase()),
       );
 
       if (keywordMatch) {
@@ -298,7 +298,7 @@ export class FuzzyMatcher {
       choice.keywords.forEach((keyword) => {
         const keywordSimilarity = this.calculateSimilarity(
           spoken,
-          keyword.toLowerCase()
+          keyword.toLowerCase(),
         );
         if (keywordSimilarity > bestMatch.confidence) {
           bestMatch = { index, confidence: keywordSimilarity };
@@ -312,8 +312,8 @@ export class FuzzyMatcher {
       const spokenWords = spoken.split(" ");
       const matchingWords = choiceWords.filter((word) =>
         spokenWords.some(
-          (spokenWord) => this.calculateSimilarity(word, spokenWord) > 0.7
-        )
+          (spokenWord) => this.calculateSimilarity(word, spokenWord) > 0.7,
+        ),
       );
 
       if (matchingWords.length > 0) {
@@ -379,7 +379,7 @@ export const isSTTSupported = (): boolean => {
 export const findBestChoiceMatch = (
   spokenText: string,
   choices: Array<{ text: string; keywords: string[] }>,
-  threshold?: number
+  threshold?: number,
 ): { index: number; confidence: number } | null => {
   return FuzzyMatcher.findBestMatch(spokenText, choices, threshold);
 };
@@ -389,7 +389,7 @@ export const calculateTextSimilarity = (str1: string, str2: string): number => {
 };
 
 export const extractSpeechIntent = (
-  spokenText: string
+  spokenText: string,
 ): { action: string; confidence: number } => {
   return FuzzyMatcher.extractIntent(spokenText);
 };
